@@ -1,0 +1,10 @@
+numpy
+pandas
+sklearn
+matplotlib
+tqdm
+ligtgbm
+tensorflow==1.14
+keras
+googlemaps
+paddlehub
