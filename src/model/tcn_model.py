@@ -1,10 +1,7 @@
-# from typing import List, Tuple
-
 from data_loader import DataLoader
 from config import Config
 
 import numpy as np
-import datetime
 import os
 import tensorflow as tf
 import keras.backend as K
@@ -181,21 +178,13 @@ class TCN:
         self.num_epochs = 1 
         y_train = self.reshape(y_train)
 
-        # Save training log
-        # current_time = str(datetime.datetime.now())
-        # checkpoint_path = "/Users/zhiyun/Desktop/Fall19-20/TEMG4000/startup_prediction/src/model/tcn_training_%s/cp.ckpt"%current_time
-        # checkpoint_dir = os.path.dirname(checkpoint_path)
-        # cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path,save_weights_only=True,verbose=1)
-
         # Directory where the checkpoints will be saved
         checkpoint_dir = '/Users/zhiyun/Desktop/Fall19-20/TEMG4000/startup_prediction/src/model'
-        # Name of the checkpoint files
         checkpoint_prefix = os.path.join(checkpoint_dir, "ckpt_1")
 
-        checkpoint_callback=tf.keras.callbacks.ModelCheckpoint(
-            filepath=checkpoint_prefix,
-            save_weights_only=True,
-            save_freq=1024)
+        checkpoint_callback=tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_prefix,
+                                                               save_weights_only=True,
+                                                               save_freq=1024)
 
         self.history = self.m.fit(X_train, y_train, epochs=self.num_epochs, validation_split=0.25, callbacks=[checkpoint_callback])
 
@@ -223,7 +212,7 @@ class TCN:
 
     # Save model
     def save_model(self):
-        self.m.save('tcn.hdf5')
+        self.m.save('src/model/tcn.hdf5')
 
 
 if __name__ == "__main__":
@@ -236,4 +225,4 @@ if __name__ == "__main__":
     model.train(X_train, y_train)
     y_pred = model.predict(X_test)
     model.evaluate(y_pred, y_test)
-    # model.save_model()
+    model.save_model()
