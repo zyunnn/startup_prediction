@@ -223,7 +223,7 @@ class TCN:
 
     # Save model
     def save_model(self):
-        self.m.save('tcn.h5')
+        self.m.save('tcn.hdf5')
 
 
 if __name__ == "__main__":
