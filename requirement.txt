@@ -3,7 +3,7 @@ pandas
 sklearn
 matplotlib
 tqdm
-ligtgbm
+lightgbm
 tensorflow==1.14
 keras
 googlemaps
