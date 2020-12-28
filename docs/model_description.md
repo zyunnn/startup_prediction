@@ -2,10 +2,6 @@
 
 ## 1. Input and output data description
 
-## 2. Model description
-
-## 1. Input and output data description
-
 ### Input format: (Batch_size = None, Window_length = 6, Feature_num = 70)
 
 Batch_size refers to the input batch size, which is variable.
